@@ -1,0 +1,70 @@
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# RewriteRule journals/(.*)/(.*) about_journal.php?journal_id=$1 [L]
+
+# RewriteRule keywords/(.*)/(.*) keywords.php?journal_id=$1 [L]
+
+RewriteRule journal?$ journal.php
+
+RewriteRule journals/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+) journal?journal_id=$1&journal_title=$2 [QSA,L] 
+
+RewriteRule ^article-in-pres?$ article-in-press.php
+RewriteRule ^article-in-press/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+) article-in-pres?journal_id=$1&journal_title=$2 [QSA,L]
+
+
+RewriteRule ^current-issue?$ current-issue.php
+RewriteRule ^current_issues/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+) current-issue?journal_id=$1&journal_title=$2 [QSA,L]
+
+RewriteRule ^previous-issue?$ previous-issue.php
+RewriteRule ^previous_issues/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+) previous-issue?journal_id=$1&journal_title=$2 [QSA,L]
+
+RewriteRule ^editorial-boar?$ editorial-board.php
+RewriteRule ^editorial-board/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+) editorial-boar?journal_id=$1&journal_title=$2 [QSA,L]
+
+RewriteRule ^contact?$ contact.php
+RewriteRule ^journal_contact/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+) contact?journal_id=$1&journal_title=$2 [QSA,L]
+
+
+RewriteRule ^key?$ keywords.php
+RewriteRule ^Keywords/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+) key?journal_id=$1&journal_title=$2 [QSA,L]
+
+RewriteRule ^k?$ keywords-detail.php
+RewriteRule ^keyword/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+) k?journal_id=$1&keyword_id=$2&keyword_title=$3 [QSA,L]
+
+
+
+RewriteRule ^ar?$ article.php
+RewriteRule ^articles/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+) ar?journal_id=$1&artical_id=$2&artical_title=$3 [QSA,L]
+
+
+
+# RewriteRule editors/(.*)/(.*) editors.php?journal_id=$1 [L]	
+
+# RewriteRule editor_in_chief/(.*)/(.*) editor_in_chief.php?journal_id=$1 [L]	
+
+# RewriteRule instructions_for_authors/(.*)/(.*) instructions_for_authors.php?journal_id=$1 [L]	
+
+# RewriteRule submit_manuscript/(.*)/(.*) submit_manuscript.php?journal_id=$1 [L]
+
+# RewriteRule article_in_press/(.*)/(.*) article_in_press.php?journal_id=$1 [L]
+
+# RewriteRule current_issues/(.*)/(.*) current_issues.php?journal_id=$1 [L]
+
+# RewriteRule previous_issues/(.*)/(.*) previous_issues.php?journal_id=$1 [L]
+
+RewriteRule archive/(.*)/(.*) archive.php?journal_id=$1 [L]
+
+RewriteRule journal_contact/(.*)/(.*) journal_contact.php?journal_id=$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule aboutus/(.*) aboutus.php?page_id=$1 [L]
+
+RewriteRule forauthors/(.*) forauthors.php?page_id=$1 [L]
+
+RewriteRule reviewers/(.*) reviewers.php?page_id=$1 [L]
